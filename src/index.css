@@ -11,3 +11,23 @@ body,
 html {
   box-sizing: border-box;
 }
+
+body {
+  background-color: #f8f8f8;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --primary-color: #4f6d7a;
+  --primary-light-color: #dbe9ee;
+  --purple: #abc4ff;
+  --green: #76c893;
+  --orange: #ff9100;
+  --red: #ff4800;
+
+  --primary-text-color: #3d3d3d;
+}
