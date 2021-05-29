@@ -23,11 +23,18 @@ const BMIResults: React.FC<Props> = ({ bmi }) => {
     history.replace("/");
   }
 
+  let bmiLabel = "";
+  let bmiN = +bmi;
+  if (bmiN <= 18.5) bmiLabel = "Underweight";
+  else if (bmiN > 18.5 && bmiN <= 24.9) bmiLabel = "Normal";
+  else if (bmiN > 24.9 && bmiN <= 29.9) bmiLabel = "Overweight";
+  else bmiLabel = "Obesity";
+
   return (
     <>
       <StyledLabel>Your BMI</StyledLabel>
       <BIMScore>{bmi}</BIMScore>
-      <BIMScoreLabel bmi={bmi}>Obesity</BIMScoreLabel>
+      <BIMScoreLabel bmi={bmi}>{bmiLabel}</BIMScoreLabel>
       <BIMCategoryList>
         <BIMCategoryListItem>{"Underweight: <18.5"}</BIMCategoryListItem>
         <BIMCategoryListItem>

@@ -1,4 +1,3 @@
-import React, { ReactChildren } from "react";
 import styled from "styled-components";
 
 export const BIMScore = styled.p`
