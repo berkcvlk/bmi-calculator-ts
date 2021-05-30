@@ -1,10 +1,12 @@
 import { useHistory } from "react-router-dom";
 import { useRef } from "react";
-import { updateLocalStorage } from "../../utils/localStorage";
+import { useSpring, animated } from "react-spring";
 
+import { updateLocalStorage } from "../../utils/localStorage";
 import { BMIFormHeader } from "../../styles/bmi-form";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
+import { animateProps } from "./animate";
 
 interface Props {
   onSetBmi: (bmi: string) => void;
@@ -14,6 +16,9 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
   const history = useHistory();
   const weightRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
+
+  // Animation Props
+  const animate = useSpring(animateProps);
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,7 +39,7 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
   };
 
   return (
-    <>
+    <animated.div style={animate}>
       <BMIFormHeader>Calculate Your BMI</BMIFormHeader>
       <form onSubmit={submitHandler}>
         <Input
@@ -57,7 +62,7 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
         />
         <Button>Calculate</Button>
       </form>
-    </>
+    </animated.div>
   );
 };
 

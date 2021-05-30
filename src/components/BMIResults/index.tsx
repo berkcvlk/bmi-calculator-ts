@@ -5,9 +5,12 @@ import {
   BIMCategoryList,
   BIMCategoryListItem,
 } from "../../styles/bmi-results";
+import { animated, useSpring } from "react-spring";
+
 import { StyledButton } from "../../styles/button";
 import { StyledLabel } from "../../styles/input";
 import { clearLocalStorage } from "../../utils/localStorage";
+import { animateProps } from "./animate";
 
 interface Props {
   bmi: string;
@@ -15,6 +18,7 @@ interface Props {
 
 const BMIResults: React.FC<Props> = ({ bmi }) => {
   const history = useHistory();
+  const animate = useSpring(animateProps);
 
   const recalculateHandler = () => {
     // Clear Local Storage
@@ -34,7 +38,7 @@ const BMIResults: React.FC<Props> = ({ bmi }) => {
   else bmiLabel = "Obesity";
 
   return (
-    <>
+    <animated.div style={animate}>
       <StyledLabel>Your BMI</StyledLabel>
       <BIMScore>{bmi}</BIMScore>
       <BIMScoreLabel bmi={bmi}>{bmiLabel}</BIMScoreLabel>
@@ -47,7 +51,7 @@ const BMIResults: React.FC<Props> = ({ bmi }) => {
         <BIMCategoryListItem>{"Obesity: 30 or greater"}</BIMCategoryListItem>
       </BIMCategoryList>
       <StyledButton onClick={recalculateHandler}>Re-calculate</StyledButton>
-    </>
+    </animated.div>
   );
 };
 
