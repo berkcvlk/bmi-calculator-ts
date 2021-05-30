@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
-import styles from "./App.module.css";
 import BMIForm from "./components/BMIForm";
 import BMIResults from "./components/BMIResults";
 import Main from "./layouts/Main/";
+
+import styles from "./App.module.css";
+
 import { getBmiFromLocalStorage, isInLocalStorage } from "./utils/localStorage";
 
 const App = () => {

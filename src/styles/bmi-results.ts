@@ -1,29 +1,22 @@
 import styled from "styled-components";
+import { bmiCategoryColorsByLabel } from "../utils/bmi";
 
-export const BIMScore = styled.p`
+export const Score = styled.p`
   margin: 0;
-
   font-size: 65px;
   font-weight: 600;
   color: var(--primary-color);
 `;
 
-export const BIMScoreLabel = styled.p<{ bmi: string }>`
+export const ScoreLabel = styled.p<{ category: string }>`
   margin: 0;
-
   font-size: 25px;
   font-weight: 600;
 
-  color: ${({ bmi }) => {
-    const bmiN = +bmi;
-    if (bmiN <= 18.5) return "var(--purple)";
-    if (bmiN > 18.5 && bmiN <= 24.9) return "var(--green)";
-    if (bmiN > 24.9 && bmiN <= 29.9) return "var(--orange)";
-    else return "var(--red)";
-  }};
+  color: ${({ category }) => bmiCategoryColorsByLabel[category]};
 `;
 
-export const BIMCategoryList = styled.div`
+export const CategoryList = styled.div`
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -32,7 +25,7 @@ export const BIMCategoryList = styled.div`
   }
 `;
 
-export const BIMCategoryListItem = styled.p`
+export const CategoryListItem = styled.p`
   margin-top: 0;
   color: var(--primary-text-color);
 `;

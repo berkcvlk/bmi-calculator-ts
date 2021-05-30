@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ theme?: string }>`
   width: 100%;
   text-transform: uppercase;
 
@@ -13,11 +13,11 @@ export const StyledButton = styled.button`
 
   color: var(--primary-color);
   background: var(--primary-light-color);
-  padding: 15px 50px;
+  padding: 18px 0;
 
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     transform: translateY(-3px);
     box-shadow: 0 3px 0 0 var(--primary-color);
   }

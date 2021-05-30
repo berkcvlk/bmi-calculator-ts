@@ -1,22 +1,18 @@
 import { useHistory } from "react-router";
-import {
-  BIMScoreLabel,
-  BIMScore,
-  BIMCategoryList,
-  BIMCategoryListItem,
-} from "../../styles/bmi-results";
 import { animated, useSpring } from "react-spring";
+
+import CategoryListContainer from "./CategoryListContainer";
 
 import { StyledButton } from "../../styles/button";
 import { StyledLabel } from "../../styles/input";
+import { ScoreLabel, Score } from "../../styles/bmi-results";
+
 import { clearLocalStorage } from "../../utils/localStorage";
+import { getBmiCategory } from "../../utils/bmi";
+
 import { animateProps } from "./animate";
 
-interface Props {
-  bmi: string;
-}
-
-const BMIResults: React.FC<Props> = ({ bmi }) => {
+const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
   const history = useHistory();
   const animate = useSpring(animateProps);
 
@@ -26,30 +22,20 @@ const BMIResults: React.FC<Props> = ({ bmi }) => {
     history.replace("/");
   };
 
+  // If BMI's not calculated
+  // Redirect, replace to the home page
   if (!bmi) {
     history.replace("/");
   }
 
-  let bmiLabel = "";
-  let bmiN = +bmi;
-  if (bmiN <= 18.5) bmiLabel = "Underweight";
-  else if (bmiN > 18.5 && bmiN <= 24.9) bmiLabel = "Normal";
-  else if (bmiN > 24.9 && bmiN <= 29.9) bmiLabel = "Overweight";
-  else bmiLabel = "Obesity";
+  const bmiCategory = getBmiCategory(+bmi);
 
   return (
     <animated.div style={animate}>
       <StyledLabel>Your BMI</StyledLabel>
-      <BIMScore>{bmi}</BIMScore>
-      <BIMScoreLabel bmi={bmi}>{bmiLabel}</BIMScoreLabel>
-      <BIMCategoryList>
-        <BIMCategoryListItem>{"Underweight: <18.5"}</BIMCategoryListItem>
-        <BIMCategoryListItem>
-          {"Normal Weight: 18.5 - 24.9"}
-        </BIMCategoryListItem>
-        <BIMCategoryListItem>{"Overweight: 25 - 29.9"}</BIMCategoryListItem>
-        <BIMCategoryListItem>{"Obesity: 30 or greater"}</BIMCategoryListItem>
-      </BIMCategoryList>
+      <Score>{bmi}</Score>
+      <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
+      <CategoryListContainer></CategoryListContainer>
       <StyledButton onClick={recalculateHandler}>Re-calculate</StyledButton>
     </animated.div>
   );
