@@ -1,16 +1,18 @@
+import styled from "styled-components";
+
 const Logo = () => {
   return (
-    <div
-      style={{
-        textAlign: "center",
-        marginBottom: "90px",
-        height: "80px",
-        padding: 0,
-      }}
-    >
+    <LogoContainer>
       <img src="/assets/logo.svg" alt="BMI Calculator - Logo" />
-    </div>
+    </LogoContainer>
   );
 };
+
+const LogoContainer = styled.div`
+  height: 80px;
+  padding: 0;
+  margin-bottom: 90px;
+  text-align: center;
+`;
 
 export default Logo;
