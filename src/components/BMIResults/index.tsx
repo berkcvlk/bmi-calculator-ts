@@ -7,6 +7,7 @@ import {
 } from "../../styles/bmi-results";
 import { StyledButton } from "../../styles/button";
 import { StyledLabel } from "../../styles/input";
+import { clearLocalStorage } from "../../utils/localStorage";
 
 interface Props {
   bmi: string;
@@ -16,6 +17,8 @@ const BMIResults: React.FC<Props> = ({ bmi }) => {
   const history = useHistory();
 
   const recalculateHandler = () => {
+    // Clear Local Storage
+    clearLocalStorage();
     history.replace("/");
   };
 

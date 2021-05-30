@@ -17,6 +17,11 @@ export const StyledButton = styled.button`
 
   cursor: pointer;
 
+  &:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 3px 0 0 var(--primary-color);
+  }
+
   &:active {
     transform: translateY(3px);
     box-shadow: 0 0 0 0 var(--primary-light-color);

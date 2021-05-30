@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BMI Calculation App",
+  "name": "Body Mess Index",
   "icons": [
     {
       "src": "favicon.ico",

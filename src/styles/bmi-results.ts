@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const BIMScore = styled.p`
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin: 0;
 
   font-size: 65px;
   font-weight: 600;
