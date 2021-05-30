@@ -24,10 +24,9 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
     // Basic Validation for input elements!
     // Only checks for empty
     if (weightRef.current?.value.trim() && heightRef.current?.value.trim()) {
-      
       const bmi = calculateBmi(
-        +weightRef.current!.value,
-        +heightRef.current!.value
+        +weightRef.current.value,
+        +heightRef.current.value
       );
 
       // Update localstorage anyway
