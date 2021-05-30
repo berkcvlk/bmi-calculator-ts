@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useRef } from "react";
 import { useSpring, animated } from "react-spring";
-
 import { updateLocalStorage } from "../../utils/localStorage";
 import { BMIFormHeader } from "../../styles/bmi-form";
 import Button from "../UI/Button";
@@ -16,8 +15,6 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
   const history = useHistory();
   const weightRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
-
-  // Animation Props
   const animate = useSpring(animateProps);
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {

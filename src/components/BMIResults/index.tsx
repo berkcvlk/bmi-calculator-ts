@@ -1,15 +1,11 @@
 import { useHistory } from "react-router";
 import { animated, useSpring } from "react-spring";
-
 import CategoryListContainer from "./CategoryListContainer";
-
 import { StyledButton } from "../../styles/button";
 import { StyledLabel } from "../../styles/input";
 import { ScoreLabel, Score } from "../../styles/bmi-results";
-
 import { clearLocalStorage } from "../../utils/localStorage";
 import { getBmiCategory } from "../../utils/bmi";
-
 import { animateProps } from "./animate";
 
 const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
@@ -22,11 +18,11 @@ const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
     history.replace("/");
   };
 
-  // If BMI's not calculated
-  // Redirect, replace to the home page
-  if (!bmi) {
-    history.replace("/");
-  }
+  // // If BMI's not calculated
+  // // Redirect, replace to the home page
+  // if (!bmi) {
+  //   history.replace("/");
+  // }
 
   const bmiCategory = getBmiCategory(+bmi);
 
