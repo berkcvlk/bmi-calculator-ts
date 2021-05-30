@@ -2,10 +2,11 @@ import { useHistory } from "react-router-dom";
 import { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { updateLocalStorage } from "../../utils/localStorage";
-import { BMIFormHeader } from "../../styles/bmi-form";
+import { calculateBmi } from "../../utils/bmi";
+import { BMIFormHeader } from "./styles";
+import { animateProps } from "./animate";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
-import { animateProps } from "./animate";
 
 interface Props {
   onSetBmi: (bmi: string) => void;
@@ -23,9 +24,11 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
     // Basic Validation for input elements!
     // Only checks for empty
     if (weightRef.current?.value.trim() && heightRef.current?.value.trim()) {
-      const weightN: number = +weightRef.current!.value;
-      const heightN: number = +heightRef.current!.value / 100;
-      const bmi: string = (weightN / (heightN * heightN)).toFixed(2);
+      
+      const bmi = calculateBmi(
+        +weightRef.current!.value,
+        +heightRef.current!.value
+      );
 
       // Update localstorage anyway
       updateLocalStorage(bmi);

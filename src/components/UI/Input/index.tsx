@@ -4,7 +4,7 @@ import {
   StyledInput,
   StyledInputMeasure,
   StyledLabel,
-} from "../../../styles/input";
+} from "./styles";
 
 type Props = {
   type: string;

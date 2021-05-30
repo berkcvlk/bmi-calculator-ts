@@ -1,4 +1,4 @@
-import { CategoryList, CategoryListItem } from "../../../styles/bmi-results";
+import { CategoryList, CategoryListItem } from "./styles";
 
 const CategoryListContainer = () => {
   return (
