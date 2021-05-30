@@ -1,6 +1,6 @@
 # Body Mass Index Calculator
 
-## 🌍 Live
+## 🔗 Live
   [Netlify](https://affectionate-hodgkin-d8b6eb.netlify.app)
 
 ## ✔️ Todo
