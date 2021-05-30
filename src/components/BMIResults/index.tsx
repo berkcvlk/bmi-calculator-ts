@@ -1,4 +1,4 @@
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { animated, useSpring } from "react-spring";
 import CategoryListContainer from "./CategoryListContainer";
 import { StyledButton } from "../../styles/button";
@@ -12,18 +12,18 @@ const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
   const history = useHistory();
   const animate = useSpring(animateProps);
 
+  if (!bmi) {
+    return <Redirect to="/" />;
+  }
+
   const recalculateHandler = () => {
     // Clear Local Storage
     clearLocalStorage();
     history.replace("/");
   };
 
-  // // If BMI's not calculated
-  // // Redirect, replace to the home page
-  // if (!bmi) {
-  //   history.replace("/");
-  // }
-
+  // Category name (normal, underweight etc.)
+  // according to bmi score
   const bmiCategory = getBmiCategory(+bmi);
 
   return (
