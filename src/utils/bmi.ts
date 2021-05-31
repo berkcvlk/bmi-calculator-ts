@@ -1,10 +1,26 @@
 export const bmiCategoryColorsByLabel: {
-  [index: string]: string;
+  [index: string]: { dark: string; light: string };
 } = {
-  underweight: "#abc4ff",
-  normal: "#76c893",
-  overweight: "#ff9100",
-  obesity: "#ff4800",
+  underweight: {
+    dark: "#abc4ff",
+    light: "#ebf1ff",
+  },
+  normal: {
+    dark: "#76c893",
+    light: "#d6ffe4",
+  },
+  overweight: {
+    dark: "#ff9100",
+    light: "#ffecd4",
+  },
+  obesity: {
+    dark: "#ff4800",
+    light: "#ffdfd4",
+  },
+  default: {
+    dark: "#4f6f7a",
+    light: "#dbe9ee",
+  },
 };
 
 export const getBmiCategory = (bmi: number) => {
@@ -15,6 +31,5 @@ export const getBmiCategory = (bmi: number) => {
 };
 
 export const calculateBmi = (w: number, h: number): string => {
-  const heightD: number = h / 100;
-  return (w / (heightD * heightD)).toFixed(2);
+  return (w / (h / 100) ** 2).toFixed(2);
 };

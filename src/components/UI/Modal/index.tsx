@@ -17,7 +17,7 @@ const Modal: React.FC<Props> = ({ children, onClose }) => {
     <>
       {ReactDOM.createPortal(<Backdrop onClick={onClose} />, modalRoot)}
       {ReactDOM.createPortal(
-        <ModalContainer onClick={onClose}>{children}</ModalContainer>,
+        <ModalContainer>{children}</ModalContainer>,
         modalRoot
       )}
     </>

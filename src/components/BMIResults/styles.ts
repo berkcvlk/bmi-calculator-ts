@@ -13,5 +13,5 @@ export const ScoreLabel = styled.p<{ category: string }>`
   font-size: 25px;
   font-weight: 600;
 
-  color: ${({ category }) => bmiCategoryColorsByLabel[category]};
+  color: ${({ category }) => bmiCategoryColorsByLabel[category].dark};
 `;
