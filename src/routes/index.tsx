@@ -7,7 +7,9 @@ export interface IRoute {
   component: JSX.Element;
 }
 
-export const Routes: IRoute[] = [
+const Routes: IRoute[] = [
   { path: "/bmi-results", isExact: false, component: <BMIResults /> },
   { path: "/", isExact: true, component: <BMIForm /> },
 ];
+
+export default Routes;
