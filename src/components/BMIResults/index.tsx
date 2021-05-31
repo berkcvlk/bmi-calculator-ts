@@ -1,5 +1,5 @@
 import { Redirect, useHistory } from "react-router";
-import { animated, useSpring } from "react-spring";
+import { useSpring } from "react-spring";
 import { StyledLabel } from "../UI/Input/styles";
 import { ScoreLabel, Score } from "./styles";
 import { clearLocalStorage } from "../../utils/localStorage";
@@ -7,6 +7,7 @@ import { getBmiCategory } from "../../utils/bmi";
 import { animateProps } from "./animate";
 import CategoryListContainer from "./CategoryListContainer";
 import Button from "../UI/Button";
+import AnimatedDiv from "../UI/Animated/AnimatedDiv";
 
 const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
   const history = useHistory();
@@ -29,13 +30,13 @@ const BMIResults: React.FC<{ bmi: string }> = ({ bmi }) => {
   const bmiCategory = getBmiCategory(+bmi);
 
   return (
-    <animated.div style={animate}>
+    <AnimatedDiv animate={animate}>
       <StyledLabel>Your BMI</StyledLabel>
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
       <CategoryListContainer></CategoryListContainer>
       <Button onClick={recalculateHandler}>Re-calculate</Button>
-    </animated.div>
+    </AnimatedDiv>
   );
 };
 

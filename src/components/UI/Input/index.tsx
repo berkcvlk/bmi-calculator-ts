@@ -6,7 +6,7 @@ import {
   StyledLabel,
 } from "./styles";
 
-type Props = {
+interface Props {
   type: string;
   min: number;
   max: number;
@@ -14,7 +14,7 @@ type Props = {
   placeholder: string;
   label: string;
   ref: React.ForwardedRef<HTMLInputElement>;
-};
+}
 
 const Input: React.FC<Props> = forwardRef((props, ref) => {
   return (

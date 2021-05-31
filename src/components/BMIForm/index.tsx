@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useRef } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import { updateLocalStorage } from "../../utils/localStorage";
 import { calculateBmi } from "../../utils/bmi";
 import { BMIFormHeader } from "./styles";
