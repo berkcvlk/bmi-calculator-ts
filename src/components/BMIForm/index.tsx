@@ -7,6 +7,7 @@ import { BMIFormHeader } from "./styles";
 import { animateProps } from "./animate";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
+import AnimatedDiv from "../UI/Animated/AnimatedDiv";
 
 interface Props {
   onSetBmi: (bmi: string) => void;
@@ -38,7 +39,7 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
   };
 
   return (
-    <animated.div style={animate}>
+    <AnimatedDiv animate={animate}>
       <BMIFormHeader>Calculate Your BMI</BMIFormHeader>
       <form onSubmit={submitHandler}>
         <Input
@@ -61,7 +62,7 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
         />
         <Button>Calculate</Button>
       </form>
-    </animated.div>
+    </AnimatedDiv>
   );
 };
 

@@ -18,7 +18,7 @@ type Props = {
 
 const Input: React.FC<Props> = forwardRef((props, ref) => {
   return (
-    <React.Fragment>
+    <>
       <StyledLabel>{props.label}</StyledLabel>
       <StyledInputDiv>
         <StyledInput
@@ -30,7 +30,7 @@ const Input: React.FC<Props> = forwardRef((props, ref) => {
         />
         <StyledInputMeasure>{props.measure}</StyledInputMeasure>
       </StyledInputDiv>
-    </React.Fragment>
+    </>
   );
 });
 
