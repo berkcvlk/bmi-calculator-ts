@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSpring } from "react-spring";
-import { updateLocalStorage } from "../../utils/localStorage";
+import { isInLocalStorage, updateLocalStorage } from "../../utils/localStorage";
 import { calculateBmi } from "../../utils/bmi";
 import { BMIFormHeader } from "./styles";
 import { animateProps } from "./animate";
@@ -9,15 +9,19 @@ import Button from "../UI/Button";
 import Input from "../UI/Input";
 import AnimatedDiv from "../UI/Animated/AnimatedDiv";
 
-interface Props {
-  onSetBmi: (bmi: string) => void;
-}
-
-const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
+const BMIForm = () => {
   const history = useHistory();
   const weightRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
   const animate = useSpring(animateProps);
+
+  useEffect(() => {
+    if (isInLocalStorage()) {
+      // If there is a bmi that calculated before
+      // replace url to results page
+      history.replace("/bmi-results");
+    }
+  }, [history]);
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,8 +36,6 @@ const BMIForm: React.FC<Props> = ({ onSetBmi }) => {
 
       // Update localstorage anyway
       updateLocalStorage(bmi);
-
-      onSetBmi(bmi);
       history.push("/bmi-results");
     }
   };
