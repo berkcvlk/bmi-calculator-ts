@@ -42,9 +42,17 @@ const BMIResults = () => {
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
       <CategoryListContainer></CategoryListContainer>
-      <Button onClick={() => setShowModal(true)}>See Recommendations</Button>
-      <Button onClick={recalculateHandler}>Re-calculate</Button>
-      {showModal && <Modal onClose={() => setShowModal(false)}>berk</Modal>}
+      <Button theme={bmiCategory} onClick={() => setShowModal(true)}>
+        See Recommendations
+      </Button>
+      <Button theme="default" onClick={recalculateHandler}>
+        Re-calculate
+      </Button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          Nothing's here, for now!
+        </Modal>
+      )}
     </AnimatedDiv>
   );
 };

@@ -62,7 +62,7 @@ const BMIForm = () => {
           measure="kg"
           ref={weightRef}
         />
-        <Button>Calculate</Button>
+        <Button theme="default">Calculate</Button>
       </form>
     </AnimatedDiv>
   );
