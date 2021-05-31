@@ -5,7 +5,7 @@ import { isInLocalStorage, updateLocalStorage } from "../../utils/localStorage";
 import { calculateBmi } from "../../utils/bmi";
 import { BMIFormHeader } from "./styles";
 import { animateProps } from "./animate";
-import Button from "../UI/Button";
+import { Button } from "../UI/Button/styles";
 import Input from "../UI/Input";
 import AnimatedDiv from "../UI/Animated/AnimatedDiv";
 

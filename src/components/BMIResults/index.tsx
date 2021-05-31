@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Redirect, useHistory } from "react-router";
 import { useSpring } from "react-spring";
 import { StyledLabel } from "../UI/Input/styles";
@@ -8,11 +9,13 @@ import {
 } from "../../utils/localStorage";
 import { getBmiCategory } from "../../utils/bmi";
 import { animateProps } from "./animate";
+import { Button } from "../UI/Button/styles";
 import CategoryListContainer from "./CategoryListContainer";
-import Button from "../UI/Button";
 import AnimatedDiv from "../UI/Animated/AnimatedDiv";
+import Modal from "../UI/Modal";
 
 const BMIResults = () => {
+  const [showModal, setShowModal] = useState(false);
   const history = useHistory();
   const animate = useSpring(animateProps);
   const bmi = getBmiFromLocalStorage();
@@ -39,7 +42,9 @@ const BMIResults = () => {
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
       <CategoryListContainer></CategoryListContainer>
+      <Button onClick={() => setShowModal(true)}>See Recommendations</Button>
       <Button onClick={recalculateHandler}>Re-calculate</Button>
+      {showModal && <Modal onClose={() => setShowModal(false)}>berk</Modal>}
     </AnimatedDiv>
   );
 };
