@@ -1,6 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import BMIForm from "./components/BMIForm";
-import BMIResults from "./components/BMIResults";
+import { Routes, IRoute } from "./routes";
 import Main from "./layouts/Main/";
 import styles from "./App.module.css";
 
@@ -9,12 +8,11 @@ const App = () => {
     <div className={styles.app}>
       <Main>
         <Switch>
-          <Route path="/bmi-results">
-            <BMIResults />
-          </Route>
-          <Route path="/" exact>
-            <BMIForm />
-          </Route>
+          {Routes.map((r: IRoute, i: number) => (
+            <Route key="i" path={r.path} exact={r.isExact}>
+              {r.component}
+            </Route>
+          ))}
         </Switch>
       </Main>
     </div>
