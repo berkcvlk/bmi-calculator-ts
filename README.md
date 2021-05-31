@@ -5,6 +5,8 @@
 
 ## ✔️ Todo
   - Diet list
+  - Refactor animated as a component
+  - Refactor routes as mappable
 
 ## 🧰 Toolbox
   - Create React App (Typescript)
