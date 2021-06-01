@@ -51,7 +51,7 @@ const BMIResults = () => {
       <StyledLabel>Your BMI</StyledLabel>
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
-      <CategoryListContainer></CategoryListContainer>
+      <CategoryListContainer />
       <Button theme={bmiCategory} onClick={showModalHandler}>
         See Recommendations
       </Button>
