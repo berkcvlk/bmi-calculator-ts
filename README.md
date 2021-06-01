@@ -3,7 +3,7 @@
 ## 🔗 [Live](https://affectionate-hodgkin-d8b6eb.netlify.app)
 
 ## ✔️ Todo
-  - Diet list
+  - Diet list or Recommendation
 
 ## 🧰 Toolbox
   - Create React App (Typescript)
