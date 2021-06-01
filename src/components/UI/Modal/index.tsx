@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { Backdrop } from "./Backdrop/styles";
-import { ModalContainer } from "./styles";
+import ModalContainer from "./ModalContainer";
 
 // Modal portal root
 // in the static index.html file
