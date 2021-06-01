@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { useSpring } from "react-spring";
 import { isInLocalStorage, updateLocalStorage } from "../../utils/localStorage";
 import { calculateBmi } from "../../utils/bmi";
 import { BMIFormHeader } from "./styles";
@@ -13,7 +12,6 @@ const BMIForm = () => {
   const history = useHistory();
   const weightRef = useRef<HTMLInputElement>(null);
   const heightRef = useRef<HTMLInputElement>(null);
-  const animate = useSpring(animateProps);
 
   useEffect(() => {
     if (isInLocalStorage()) {
@@ -41,7 +39,7 @@ const BMIForm = () => {
   };
 
   return (
-    <AnimatedDiv animate={animate}>
+    <AnimatedDiv animateProps={animateProps}>
       <BMIFormHeader>Calculate Your BMI</BMIFormHeader>
       <form onSubmit={submitHandler}>
         <Input

@@ -1,10 +1,12 @@
-import { animated } from "react-spring";
+import { animated, useSpring } from "react-spring";
 
 interface Props {
-  animate: {};
+  animateProps: {};
 }
 
-const AnimatedDiv: React.FC<Props> = ({ children, animate }) => {
+const AnimatedDiv: React.FC<Props> = ({ children, animateProps }) => {
+  const animate = useSpring(animateProps);
+
   return <animated.div style={animate}>{children}</animated.div>;
 };
 

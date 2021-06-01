@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Redirect, useHistory } from "react-router";
-import { useSpring } from "react-spring";
 import { StyledLabel } from "../UI/Input/styles";
 import { ScoreLabel, Score } from "./styles";
 import {
@@ -17,7 +16,6 @@ import Modal from "../UI/Modal";
 const BMIResults = () => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
-  const animate = useSpring(animateProps);
   const bmi = getBmiFromLocalStorage();
 
   // User land the bmi-result page
@@ -37,7 +35,7 @@ const BMIResults = () => {
   const bmiCategory = getBmiCategory(+bmi);
 
   return (
-    <AnimatedDiv animate={animate}>
+    <AnimatedDiv animateProps={animateProps}>
       <StyledLabel>Your BMI</StyledLabel>
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
