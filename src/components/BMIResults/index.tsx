@@ -5,7 +5,7 @@ import { ScoreLabel, Score } from "./styles";
 import {
   clearLocalStorage,
   getBmiFromLocalStorage,
-} from "../../utils/localStorage";
+} from "../../utils/local-storage";
 import { getBmiCategory } from "../../utils/bmi";
 import { animateProps } from "./animate";
 import { Button } from "../UI/Button/styles";
@@ -30,9 +30,21 @@ const BMIResults = () => {
     history.replace("/");
   };
 
+  const showModalHandler = () => {
+    setShowModal(true);
+  };
+
+  const hideModalHandler = () => {
+    setShowModal(false);
+  };
+
   // Category name (normal, underweight etc.)
   // according to bmi score
   const bmiCategory = getBmiCategory(+bmi);
+
+  const renderModal = showModal && (
+    <Modal onClose={hideModalHandler}>Nothing's here, for now!</Modal>
+  );
 
   return (
     <AnimatedDiv animateProps={animateProps}>
@@ -40,17 +52,13 @@ const BMIResults = () => {
       <Score>{bmi}</Score>
       <ScoreLabel category={bmiCategory}>{bmiCategory}</ScoreLabel>
       <CategoryListContainer></CategoryListContainer>
-      <Button theme={bmiCategory} onClick={() => setShowModal(true)}>
+      <Button theme={bmiCategory} onClick={showModalHandler}>
         See Recommendations
       </Button>
       <Button theme="default" onClick={recalculateHandler}>
         Re-calculate
       </Button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          Nothing's here, for now!
-        </Modal>
-      )}
+      {renderModal}
     </AnimatedDiv>
   );
 };
