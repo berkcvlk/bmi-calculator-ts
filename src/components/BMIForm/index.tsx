@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { isInLocalStorage, updateLocalStorage } from "../../utils/localStorage";
+import { isInLocalStorage, updateLocalStorage } from "../../utils/local-storage";
 import { calculateBmi } from "../../utils/bmi";
 import { BMIFormHeader } from "./styles";
 import { animateProps } from "./animate";
