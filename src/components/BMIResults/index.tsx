@@ -43,7 +43,7 @@ const BMIResults = () => {
   const bmiCategory = getBmiCategory(+bmi);
 
   const renderModal = showModal && (
-    <Modal onClose={hideModalHandler}>Nothing's here, for now!</Modal>
+    <Modal onClose={hideModalHandler}>Life is short, birds are flying...</Modal>
   );
 
   return (

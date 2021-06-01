@@ -23,6 +23,7 @@ export const Header = styled.div`
   display: flex;
   margin-bottom: 40px;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Title = styled.span`
